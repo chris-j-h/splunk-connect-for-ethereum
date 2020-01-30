@@ -7,9 +7,6 @@ import { createModuleDebug } from './utils/debug';
 import { ManagedResource } from './utils/resource';
 import { linearBackoff, resolveWaitTime, WaitTime } from './utils/retry';
 import { AggregateMetric } from './utils/stats';
-import { AbiRepository } from './abi';
-import { ContractInfo } from './contract';
-import { Cache } from './utils/cache';
 
 const { debug, info, error } = createModuleDebug('nodestats');
 
@@ -35,8 +32,6 @@ export class NodeStatsCollector implements ManagedResource {
             platformAdapter: NodePlatformAdapter;
             ethClient: EthereumClient;
             output: Output;
-            abiRepo?: AbiRepository;
-            contractInfoCache?: Cache<string, Promise<ContractInfo>>;
             metricsEnabled: boolean;
             metricsInterval: number;
             infoEnabled: boolean;

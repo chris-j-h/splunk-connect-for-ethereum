@@ -1,5 +1,11 @@
-import { AbiRepository, intBits, decodeParameterValue, computeSignatureHash, computeSignature } from '../src/abi';
 import { join } from 'path';
+import {
+    AbiRepository,
+    computeSignature,
+    computeSignatureHash,
+    decodeParameterValue,
+    intBits,
+} from '../src/abi/repository';
 
 test('AbiRepository#decodeMethod', async () => {
     const abiRepo = new AbiRepository();

@@ -1,7 +1,7 @@
-import { AbiRepository } from './abi';
+import { AbiRepository } from './abi/repository';
 import { BlockRange, blockRangeSize, blockRangeToArray, chunkedBlockRanges, serializeBlockRange } from './blockrange';
 import { Checkpoint } from './checkpoint';
-import { ContractInfo, getContractInfo } from './contract';
+import { ContractInfo, getContractInfo } from './abi/contract';
 import { EthereumClient } from './eth/client';
 import { blockNumber, getBlock, getTransactionReceipt } from './eth/requests';
 import { RawBlockResponse, RawLogResponse, RawTransactionResponse } from './eth/responses';
@@ -288,7 +288,7 @@ export class BlockWatcher implements ManagedResource {
 
         let callInfo;
         if (this.abiRepo && toInfo && toInfo.isContract) {
-            callInfo = this.abiRepo.decodeMethod(rawTx.input, toInfo.fingerprint);
+            callInfo = this.abiRepo.decodeFunctionCall(rawTx.input, toInfo.fingerprint);
         }
 
         this.counters.transactionsProcessed++;

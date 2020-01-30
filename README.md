@@ -9,7 +9,7 @@ Splunk Connect for Ethereum (aka `ethlogger`) makes it easy to ingest data about
 -   Highly performant batching and compression algorithm 🚄.
 -   Extracts a rich set of node information and metrics in order to gain deep insight into your node 🙉.
 -   Introspects your node platform (i.e. geth, parity, besu or quorum) in order to ensure maximum data extraction 🎂.
--   Contract fingerprinting in order to match ABIs with function signatures (i.e. we can decode the parameter names too!) 🔎.
+-   [Contract fingerprinting](https://github.com/splunk/splunk-connect-for-ethereum/tree/master/docs/abi.md#contract-fingerprinting) in order to match ABIs with function signatures (i.e. we can decode the parameter names too!) 🔎.
 -   Enables awesome dashboards (keepin' it 200) 💯💯.
 
 If you want to learn more about [Splunk's](https://www.splunk.com) efforts to make blockchains stable, secure, and scalable raise an issue here or email us at blockchain at splunk dot com.

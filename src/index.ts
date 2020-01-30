@@ -1,12 +1,12 @@
 import { Command } from '@oclif/command';
 import debugModule from 'debug';
 import { inspect } from 'util';
-import { AbiRepository } from './abi';
+import { AbiRepository } from './abi/repository';
 import { BlockWatcher } from './blockwatcher';
 import { Checkpoint } from './checkpoint';
 import { CLI_FLAGS } from './cliflags';
 import { ConfigError, loadEthloggerConfig, EthloggerConfig } from './config';
-import { ContractInfo } from './contract';
+import { ContractInfo } from './abi/contract';
 import { BatchedEthereumClient } from './eth/client';
 import { HttpTransport } from './eth/http';
 import { HecClient } from './hec';
@@ -144,8 +144,6 @@ class Ethlogger extends Command {
         const nodeStatsCollector = new NodeStatsCollector({
             ethClient: client,
             platformAdapter,
-            abiRepo,
-            contractInfoCache,
             output,
             metricsEnabled: config.nodeMetrics.enabled,
             metricsInterval: config.nodeMetrics.collectInterval,
